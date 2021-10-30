@@ -1,5 +1,5 @@
 // Obtener una referencia al elemento canvas del DOM
-var grafica = document.getElementById("grafica").getContext("2d");
+var grafica1 = document.getElementById("grafica1").getContext("2d");
 const text_block = document.getElementById("temp_sing");
 const ready = document.getElementById("ready_butt");
 var check_text = document.getElementById("check_text");
@@ -25,7 +25,7 @@ var y_axis = {
 };
 
 
-new Chart(grafica, {
+new Chart(grafica1, {
     type: 'line',// Tipo de gráfica
     data: {
         labels: x_axis,
