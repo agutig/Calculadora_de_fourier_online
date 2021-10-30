@@ -2,12 +2,12 @@
 const $grafica = document.querySelector("#grafica");
 const text_block = document.getElementById("temp_sing");
 const ready = document.getElementById("ready_butt");
+var check_text = document.getElementById("check_text");
 var singnal_text = ""
 
 ready.onclick = function(){
-    singnal_text = text_block.innerHtml;
-
-
+    singnal_text = text_block.value;
+    check_text.innerHTML = "y(t)= " + singnal_text;
     const signal = new signal(singnal_text);
 
 // Las etiquetas son las que van en el eje X. 
