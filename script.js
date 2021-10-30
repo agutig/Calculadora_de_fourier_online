@@ -1,15 +1,23 @@
 // Obtener una referencia al elemento canvas del DOM
 const $grafica = document.querySelector("#grafica");
-const signal = document.getElementById("temp_sing");
+const text_block = document.getElementById("temp_sing");
+const ready = document.getElementById("ready_butt");
+var singnal_text = ""
+
+ready.onclick = function(){
+    singnal_text = text_block.innerHtml;
+
+
+    const signal = new signal(singnal_text);
 
 // Las etiquetas son las que van en el eje X. 
-const etiquetas = ["Enero", "Febrero", "Marzo", "Abril"]
+    var x_axis = signal.x_axis();
 
 // Podemos tener varios conjuntos de datos. Comencemos con uno
 
-const datosVentas2020 = {
+var y_axis = {
     label: "Amplitud",
-    data: [5000, 1500, 8000, 5102], // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
+    data: signal.y_axis(), // La data es un arreglo que debe tener la misma cantidad de valores que la cantidad de etiquetas
 
 // Editar la grafica	
            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Color de fondo
@@ -20,9 +28,9 @@ const datosVentas2020 = {
 new Chart($grafica, {
     type: 'line',// Tipo de gráfica
     data: {
-        labels: etiquetas,
+        labels: x_axis,
         datasets: [
-            datosVentas2020
+            y_axis
             // Aquí más datos...
         ]
     },
@@ -36,3 +44,5 @@ new Chart($grafica, {
         },
     }
 });
+
+}
